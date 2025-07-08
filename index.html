@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Monthsary My Loveee</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #a770ef, #cf8bf3, #fdb99b);
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    /* INTRO SCREEN */
+    #intro {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: #1f0036;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+      animation: fadeOut 3s ease-in-out 5s forwards;
+    }
+
+    #intro h1 {
+      font-size: 3em;
+      color: #ffb3ff;
+      margin-bottom: 10px;
+    }
+
+    /* FIREWORKS */
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: yellow;
+      border-radius: 50%;
+      animation: explode 1.5s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(5); opacity: 0; }
+    }
+
+    /* MAIN MESSAGE SCREEN */
+    .overlay {
+      position: relative;
+      padding: 80px 20px;
+      min-height: 100vh;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .message {
+      margin-top: 40px;
+      font-size: 1.5em;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: flash 2s infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes flash {
+      0% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    /* Tulip Animation */
+    .tulip {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('https://i.imgur.com/ccX0cWB.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- INTRO -->
+  <div id="intro">
+    <h1>🎉 Happy Monthsary, My Loveee! 🎉</h1>
+    <p>Celebrating our love today 💖</p>
+  </div>
+
+  <!-- MAIN MESSAGE -->
+  <div class="overlay">
+    <h1>💜 Happy Monthsary My Loveee 💜</h1>
+    <div class="message">
+      Happy monthsary my loveee, thank youu po sa pagtitimpi sa kakulitan ko po.  
+      Thank youu rin po loveee sa lahat po, for making me the happiest man alive.  
+      I loveee youu po my loveee. Sorry po sa mga kasalanan ko po,  
+      sa pagkukulang ko po — sorry din po loveeee.  
+      Happy monthsary po again loveee!  
+      Looking forward po sa mga next monthsary, even anniversary and moreeee.  
+      I loveeee youuuuu so so so much po and I missss youuu really badd na po.  
+      Sorry po loveee kung ito lang po nakayanan ko po this month heheheh.  
+      I loveee youuuuuu! 💗
+    </div>
+  </div>
+
+  <!-- Tulip rain -->
+  <script>
+    const tulipCount = 25;
+    for (let i = 0; i < tulipCount; i++) {
+      const tulip = document.createElement("div");
+      tulip.className = "tulip";
+      tulip.style.left = Math.random() * 100 + "vw";
+      tulip.style.animationDuration = 5 + Math.random() * 5 + "s";
+      tulip.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(tulip);
+    }
+
+    // Fireworks intro
+    function createFirework() {
+      for (let i = 0; i < 30; i++) {
+        const f = document.createElement("div");
+        f.className = "firework";
+        f.style.left = Math.random() * 100 + "vw";
+        f.style.top = Math.random() * 100 + "vh";
+        f.style.background = ["red", "yellow", "orange", "violet", "white"][Math.floor(Math.random() * 5)];
+        document.getElementById("intro").appendChild(f);
+        setTimeout(() => f.remove(), 1500);
+      }
+    }
+
+    // Repeat fireworks 3 times
+    setTimeout(createFirework, 500);
+    setTimeout(createFirework, 2000);
+    setTimeout(createFirework, 3500);
+  </script>
+</body>
+</html>
